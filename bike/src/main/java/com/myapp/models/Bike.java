@@ -3,7 +3,18 @@ package com.myapp.models;
 import java.math.BigDecimal;
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GeneratedType;
+
+@Entity
 public class Bike {
+
+	@Id
+	@GeneratedValue(strategy = GenerateType.AUTO)
+	private Lond id;
+
 	private String name;
 	private String email;
 	private String phone;
@@ -14,6 +25,12 @@ public class Bike {
 	private boolean contact;
 	
 	
+	public Long getId() {
+		return id;
+	}
+	private void setId(Long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

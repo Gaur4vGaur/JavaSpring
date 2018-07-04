@@ -6,14 +6,18 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GeneratedType;
+import javax.persistence.GenerationType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bike {
 
 	@Id
-	@GeneratedValue(strategy = GenerateType.AUTO)
-	private Lond id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	private String name;
 	private String email;
@@ -21,6 +25,8 @@ public class Bike {
 	private String model;
 	private String serialNumber;
 	private BigDecimal purchasePrice;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
 	private Date purchaseDate;
 	private boolean contact;
 	

@@ -26,7 +26,7 @@ public class Bike {
 	private String serialNumber;
 	private BigDecimal purchasePrice;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date purchaseDate;
 	private boolean contact;
 	

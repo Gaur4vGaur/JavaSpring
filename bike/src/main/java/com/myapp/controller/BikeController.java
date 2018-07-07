@@ -31,6 +31,11 @@ public class BikeController {
 		return bikeRepository.findAll();
 	}
 
+	@GetMapping("/{id}")
+	public Bike get(@PathVariable("id") long id) {
+		return bikeRepository.getOne(id);
+	}
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	public void create(@RequestBody Bike bike) {
@@ -42,11 +47,6 @@ public class BikeController {
 	public void update(@PathVariable("id") long id, @RequestBody Bike bike) {
 		bike.setId(id);
 		bikeRepository.saveAndFlush(bike);
-	}
-
-	@GetMapping("/{id}")
-	public Bike get(@PathVariable("id") long id) {
-		return bikeRepository.getOne(id);
 	}
 
 	@DeleteMapping("/{id}")

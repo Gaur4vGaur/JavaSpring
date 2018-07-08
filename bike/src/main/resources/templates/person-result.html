@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling and Validating Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Congratulations! You are old enough to sign up for this site.</h1>
+    <p th:text="'name: ' + ${person.name}" />
+    <p th:text="'age: ' + ${person.age}" />
+    <a href="/person">Validate another person</a>
+</body>
+</html>

@@ -1,19 +1,18 @@
 package com.myapp.models.mongo;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@Document
 public class Bike {
 
-	/*@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;*/
 	private String name;
 	private String email;
 	private String phone;
@@ -25,13 +24,7 @@ public class Bike {
 	private Date purchaseDate;
 	private boolean contact;
 	
-	
-	/*public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}*/
+
 	public String getName() {
 		return name;
 	}
@@ -83,7 +76,7 @@ public class Bike {
 
 	@Override
 	public String toString() {
-		return "Bike(" /*+ id + ", "*/ + name + ", " + email + ", " + phone + ", " + model + ", " + 
+		return "Bike(" + name + ", " + email + ", " + phone + ", " + model + ", " + 
 		serialNumber + ", " + purchasePrice + ", " + purchaseDate + ", " + contact + ")";
  	}
 	

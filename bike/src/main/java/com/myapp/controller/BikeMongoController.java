@@ -22,13 +22,13 @@ public class BikeMongoController {
 
 	@PostMapping("/create")
 	public void create(@RequestBody Bike bike) {
-		bikeMongoRepository.save(bike);
+		bikeMongoRepository.insert(bike);
 	}
 
 	@PostMapping("/createAll")
 	public void createAll(@RequestBody List<Bike> bikeList) {
 		bikeList.forEach(System.out::println);
-		bikeMongoRepository.saveAll(bikeList);
+		bikeMongoRepository.insert(bikeList);
 	}
 
 	@GetMapping("/all")

@@ -3,6 +3,7 @@ package com.myapp.repositories;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpEntity;
 
 import java.util.List;
 import java.util.Arrays;
@@ -28,6 +29,12 @@ public class UserRepository implements IUserRepository<User> {
 		restTemplate.getForEntity("https://jsonplaceholder.typicode.com/posts", User[].class);
 
 		return Arrays.asList(response.getBody());
+	}
+
+	public void createUsers(List<User> userList) {
+		restTemplate = new RestTemplate();
+		HttpEntity<User[]> entity = new HttpEntity<>(userList.toArray(new User[userList.size()]));
+		restTemplate.postForObject("https://jsonplaceholder.typicode.com/posts", entity, User[].class);
 	}
 
 }

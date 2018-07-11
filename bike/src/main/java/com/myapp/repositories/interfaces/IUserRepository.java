@@ -8,4 +8,5 @@ public interface IUserRepository<T> {
 
 	public List<T> users();
 
+	public void createUsers(List<T> userList);
 }

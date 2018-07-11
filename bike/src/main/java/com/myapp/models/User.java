@@ -32,4 +32,9 @@ public class User {
 		this.body = body;
 	}
 
+	@Override
+	public String toString() {
+		return "User(" + this.userId + ",\n" + this.id + ",\n" + this.title + ",\n" + this.body + ")";
+	}
+
 }

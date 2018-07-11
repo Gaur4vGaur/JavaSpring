@@ -34,7 +34,10 @@ public class UserRepository implements IUserRepository<User> {
 	public void createUsers(List<User> userList) {
 		restTemplate = new RestTemplate();
 		HttpEntity<User[]> entity = new HttpEntity<>(userList.toArray(new User[userList.size()]));
+		long start = System.currentTimeMillis();
 		restTemplate.postForObject("https://jsonplaceholder.typicode.com/posts", entity, User[].class);
+		long end = System.currentTimeMillis();
+		System.out.println("time to post: " + (end - start));
 	}
 
 }
